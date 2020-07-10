@@ -22,6 +22,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         body{ font: 14px sans-serif;}
         .welcome-text{
           padding-top: 40px;
+          float: left;
+        }
+
+        .timestamp{
+          padding-top: 80px;
+          padding-right: 20px;
+          padding-bottom: 20px;
+          text-align: right;
+          
         }
     </style>
 </head>
@@ -40,7 +49,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <ul class="dropdown-menu">
           <li><a href="#">Department Summary</a></li>
           <li><a href="#">My Projects</a></li>
-          <li><a href="#">Page 2-3</a></li>
+          <li><a href="#">Overtime</a></li>
         </ul>
       </li>
     </ul>
@@ -56,6 +65,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <div class="welcome-text">
         <h1>Welcome, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b></h1>
     </div>
+
+    <div class="timestamp">
+        <?php 
+        $timestamp = time();
+        echo(date("F d, Y h:i:s", $timestamp));
+        ?>
+    </div>
+
     <table class="table table-hover">
   <thead>
     <tr>

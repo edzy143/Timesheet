@@ -20,12 +20,23 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style type="text/css">
         body{ font: 14px sans-serif;}
+        .week-header{
+          padding-top: 40px;
+          float: left;
+        }
         .timestamp{
           padding-top: 80px;
           padding-right: 20px;
           padding-bottom: 20px;
           text-align: right;
           
+        }
+        #myList{
+          position: fixed;
+          left: 110px;
+        }
+        .main-details{
+          padding-left: 7px;
         }
     </style>
 </head>
@@ -57,53 +68,71 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 
 <body>
-    <div class="timestamp">
+  <div class="week-header">
+        <h1>Week <b>
+        <?php 
+        echo " " . date("W"); ?>
+        </b>
+        </h1>
+  </div>
+
+  <div class="timestamp">
         <?php 
         $timestamp = time();
         echo(date("F d, Y h:i:s", $timestamp));
         ?>
-    </div>
+  </div>
+
+  <div class="main-details">
+
+  <form>
+       <fieldset>
+          <p>
+             <label>Month/Year</label>
+             <select id = "myList">
+               <option value = "1">07/20</option>
+               <option value = "2">08/20</option>
+               <option value = "3">09/20</option>
+               <option value = "4">10/20</option>
+             </select>
+          </p>
+          <p>
+             <label>Week</label>
+             <select id = "myList">
+               <option value = "1">07/20</option>
+               <option value = "2">08/20</option>
+               <option value = "3">09/20</option>
+               <option value = "4">10/20</option>
+             </select>
+          </p>
+       </fieldset>
+    </form>
+  </div>
+
+
     <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Month</th>
-      <th scope="col">Week</th>
-      <th scope="col">Completed</th>
-      <th scope="col">Km</th>
+      <th scope="col">Date</th>
+      <th scope="col">Project</th>
+      <th scope="col">Details</th>
       <th scope="col">Hours</th>
-      <th scope="col">Saturday</th>
-      <th scope="col">Sunday</th>
-      <th scope="col">Public Holiday</th>
-      <th scope="col">Normal Leave</th>
-      <th scope="col">Normal Hours</th>
-      <th scope="col">Lunch</th>
+      <th scope="col">Start Time</th>
+      <th scope="col">End Time</th>
+      <th scope="col">Km</th>
+      <th scope="col">Charge</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">May-20</th>
-      <td>Mon 4 May - Sun 10 May</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
       <td><label><input type="checkbox" value="true"></label></td>
-      <td>0</td>
-      <td>48</td>
-      <td>8</td>
-      <td>0</td>
-      <td>4</td>
-      <td>3</td>
-      <td>160</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th scope="row">May-20</th>
-      <td>Mon 4 May - Sun 10 May</td>
-      <td><input type="checkbox" value="true"></label></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th scope="row">May-20</th>
-      <td colspan>Mon 4 May - Sun 10 May</td>
-      <td><input type="checkbox" value="true"></label></td>
-      <td>0</td>
     </tr>
   </tbody>
 </table>
