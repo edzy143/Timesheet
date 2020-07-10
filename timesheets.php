@@ -9,7 +9,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 
 
-
+$conn = mysqli_connect("localhost", "root", "", "demo");
 
 ?>
  
@@ -133,25 +133,26 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <tr>
       <th scope="row"><input type="date" name="date_entry" id="dateEntry"></th>
       <td><p>
-             <select >
-               <option value = "1">31080.1</option>
-               <option value = "2">31080.2</option>
-               <option value = "3">31080.3</option>
-               <option value = "4">31080.4</option>
+             <select name="projects" id="projects">
+             <?php 
+$sql = mysqli_query($conn, "SELECT ProjectNumber FROM Projects");
+while ($row = $sql->fetch_assoc()){
+echo "<option value=\"1\">" . $row['ProjectNumber'] . "</option>";
+}
+?>
              </select>
           </p></td>
       <td><input type="text" name="details" id="details"></td>
       <td><input type="time" name="start_time" id="startTime"></td>
       <td><input type="time" name="end_time" id="endTime"></td>
-      <td>
-      </td>
-      <td></td>
+      <td><input type="float" name="hours_total" id="hours_total"></td>
+      <td><input type="float" name="km" id="km"></td>
       <td><label><input type="checkbox" value="true"></label></td>
     <td><input type="submit" value="Submit"></td>
     </tr>
     </form>
     <?php
-$conn = mysqli_connect("localhost", "root", "", "demo");
+
 $result = mysqli_query($conn,"SELECT * FROM Times");
 
 if (mysqli_num_rows($result) > 0) {
@@ -163,12 +164,12 @@ while($row = mysqli_fetch_array($result)) {
 ?>
     <tr>
       <th scope="row"><?php echo $row["Dates"]; ?></th>
-      <td></td>
+      <td><?php echo $row["Project"]; ?></td>
       <td><?php echo $row["Details"]; ?></td>
       <td><?php echo $row["StartTime"]; ?></td>
       <td><?php echo $row["EndTime"]; ?></td>
-      <td></td>
-      <td></td>
+      <td><?php echo $row["HoursTotal"]; ?></td>
+      <td><?php echo $row["KM"]; ?></td>
       <td></td>
       <td></td>
     </tr>
@@ -182,7 +183,7 @@ $i++;
 <?php
 }
 else{
-    echo "No result found";
+    echo "No entries for this week";
 }
 ?>
 

@@ -10,12 +10,16 @@ if($link === false){
  
 // Escape user inputs for security
 $date_entry = mysqli_real_escape_string($link, $_REQUEST['date_entry']);
+$project = mysqli_real_escape_string($link, $_REQUEST['projects']);
 $details = mysqli_real_escape_string($link, $_REQUEST['details']);
 $start_time = mysqli_real_escape_string($link, $_REQUEST['start_time']);
 $end_time = mysqli_real_escape_string($link, $_REQUEST['end_time']);
+$hours_total = mysqli_real_escape_string($link, $_REQUEST['hours_total']);
+$km = mysqli_real_escape_string($link, $_REQUEST['km']);
+
  
 // attempt insert query execution
-$sql = "INSERT INTO Times (Dates, Details, StartTime, EndTime) VALUES ('$date_entry', '$details', '$start_time', '$end_time')";
+$sql = "INSERT INTO Times (Dates, Project, Details, StartTime, EndTime) VALUES ('$date_entry', '$project', '$details', '$start_time', '$end_time')";
 if(mysqli_query($link, $sql)){
     echo "Records added successfully.";
 } else{
