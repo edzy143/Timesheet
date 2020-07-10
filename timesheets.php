@@ -7,6 +7,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
+
+
+
+
 ?>
  
 <!DOCTYPE html>
@@ -139,16 +143,49 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <td><input type="text" name="details" id="details"></td>
       <td><input type="time" name="start_time" id="startTime"></td>
       <td><input type="time" name="end_time" id="endTime"></td>
-      <td></td>
+      <td>
+      </td>
       <td></td>
       <td><label><input type="checkbox" value="true"></label></td>
     <td><input type="submit" value="Submit"></td>
     </tr>
     </form>
-    
+    <?php
+$conn = mysqli_connect("localhost", "root", "", "demo");
+$result = mysqli_query($conn,"SELECT * FROM Times");
+
+if (mysqli_num_rows($result) > 0) {
+?>
+
+<?php
+$i=0;
+while($row = mysqli_fetch_array($result)) {
+?>
+    <tr>
+      <th scope="row"><?php echo $row["Dates"]; ?></th>
+      <td></td>
+      <td><?php echo $row["Details"]; ?></td>
+      <td><?php echo $row["StartTime"]; ?></td>
+      <td><?php echo $row["EndTime"]; ?></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <?php
+$i++;
+}
+?>
+
   </tbody>
 </table>
-    
+<?php
+}
+else{
+    echo "No result found";
+}
+?>
+
 
 </body>
 </html>
