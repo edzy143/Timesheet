@@ -13,7 +13,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <title>Timesheets</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -88,7 +88,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <form>
        <fieldset>
           <p>
-             <label>Month/Year</label>
+             <label>Year/Month</label>
              <select id = "myList">
                <option value = "1">07/20</option>
                <option value = "2">08/20</option>
@@ -116,24 +116,36 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <th scope="col">Date</th>
       <th scope="col">Project</th>
       <th scope="col">Details</th>
-      <th scope="col">Hours</th>
       <th scope="col">Start Time</th>
       <th scope="col">End Time</th>
+      <th scope="col">Hours</th>
       <th scope="col">Km</th>
       <th scope="col">Charge</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
+  <form action="insert.php" method="post">
     <tr>
-      <th scope="row">May-20</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <th scope="row"><input type="date" name="date_entry" id="dateEntry"></th>
+      <td><p>
+             <select >
+               <option value = "1">31080.1</option>
+               <option value = "2">31080.2</option>
+               <option value = "3">31080.3</option>
+               <option value = "4">31080.4</option>
+             </select>
+          </p></td>
+      <td><input type="text" name="details" id="details"></td>
+      <td><input type="time" name="start_time" id="startTime"></td>
+      <td><input type="time" name="end_time" id="endTime"></td>
       <td></td>
       <td></td>
       <td><label><input type="checkbox" value="true"></label></td>
+    <td><input type="submit" value="Submit"></td>
     </tr>
+    </form>
+    
   </tbody>
 </table>
     
