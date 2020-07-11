@@ -1,0 +1,7 @@
+CREATE TABLE Times (
+Dates DATE,
+Project FLOAT(8,2),
+Details varchar(255),
+StartTime TIME,
+EndTime TIME
+);
