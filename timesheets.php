@@ -9,7 +9,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 
 
-$conn = mysqli_connect("localhost", "root", "", "demo");
+$conn = mysqli_connect("localhost", "root", "", "timesheetdb");
 
 ?>
  

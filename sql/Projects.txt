@@ -1,0 +1,4 @@
+CREATE TABLE Projects (
+ProjectNumber FLOAT(8,2),
+Description varchar(255)
+);
