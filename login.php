@@ -94,27 +94,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ 
-            font: 14px sans-serif;
-            text-align:center; 
-            }
-        .wrapper{ 
-            width: 350px; 
-            padding: 20px;
-            margin: 0 auto;
-            width: 50%;
-
-            }
-            .picture {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;
-}
-    </style>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
+
+<!--
 <div class="picture">
 <img src="img/logo.jpg" alt="Company logo"  class="picture">
 </div>
@@ -137,6 +124,42 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
         </form>
-    </div>    
+    </div>
+
+--> 
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="img/logo.jpg" id="icon" alt="Company Logo" />
+    </div>
+
+    <!-- Login Form -->
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="login" value="<?php echo $username; ?>">
+      <span class="help-block"><?php echo $username_err; ?></span>
+    </div>
+    <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+      <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+      <input type="submit" class="fadeIn fourth" value="Log In">
+      <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+    </form>
+
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
+
+
 </body>
 </html>

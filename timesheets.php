@@ -39,7 +39,7 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
     </style>
 </head>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Timesheets</a>
