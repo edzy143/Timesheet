@@ -7,10 +7,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
-
-
 $conn = mysqli_connect("localhost", "root", "", "demo");
-
 ?>
  
 <!DOCTYPE html>

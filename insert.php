@@ -9,6 +9,8 @@ if($link === false){
 }
  
 // Escape user inputs for security
+session_start();
+$username = $_SESSION['username'];    
 $date_entry = mysqli_real_escape_string($link, $_REQUEST['date_entry']);
 $project = mysqli_real_escape_string($link, $_REQUEST['projects']);
 $details = mysqli_real_escape_string($link, $_REQUEST['details']);
@@ -25,7 +27,7 @@ $hours_total = abs($time2 - $time1) / 3600;
 
  
 // attempt insert query execution
-$sql = "INSERT INTO Times (Dates, Project, Details, StartTime, EndTime, HoursTotal) VALUES ('$date_entry', '$project', '$details', '$start_time', '$end_time', '$hours_total')";
+$sql = "INSERT INTO Times (UserName, Dates, Project, Details, StartTime, EndTime, HoursTotal) VALUES ('$username', '$date_entry', '$project', '$details', '$start_time', '$end_time', '$hours_total')";
 if(mysqli_query($link, $sql)){
     echo "Records added successfully.";
 } else{

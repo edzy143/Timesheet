@@ -1,4 +1,5 @@
 CREATE TABLE times (
+UserName varchar(255),
 Dates DATE,
 Project FLOAT(8,2),
 Details varchar(255),
