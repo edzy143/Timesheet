@@ -22,11 +22,11 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
     <style type="text/css">
         body{ font: 14px sans-serif;}
         .week-header{
-          padding-top: 40px;
+          padding-top: 10px;
           float: left;
         }
         .timestamp{
-          padding-top: 80px;
+          padding-top: 40px;
           padding-right: 20px;
           padding-bottom: 20px;
           text-align: right;

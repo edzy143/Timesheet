@@ -21,12 +21,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <style type="text/css">
         body{ font: 14px sans-serif;}
         .welcome-text{
-          padding-top: 40px;
+          padding-top: 10px;
           float: left;
         }
 
         .timestamp{
-          padding-top: 80px;
+          padding-top: 40px;
           padding-right: 20px;
           padding-bottom: 20px;
           text-align: right;
