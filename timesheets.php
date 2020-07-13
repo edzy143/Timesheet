@@ -137,7 +137,8 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
              <?php 
 $sql = mysqli_query($conn, "SELECT ProjectNumber FROM Projects");
 while ($row = $sql->fetch_assoc()){
-echo "<option value=\"1\">" . $row['ProjectNumber'] . "</option>";
+  $projno = $row['ProjectNumber'];
+echo "<option value=\"$projno\">" . $row['ProjectNumber'] . "</option>";
 }
 ?>
              </select>
