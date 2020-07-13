@@ -47,7 +47,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Extras
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Department Summary</a></li>
+          <li><a href="#">Branch Summary</a></li>
           <li><a href="#">My Projects</a></li>
           <li><a href="#">Overtime</a></li>
         </ul>
