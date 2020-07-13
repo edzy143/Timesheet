@@ -1,7 +1,7 @@
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "", "timesheetdb");
+$link = mysqli_connect("localhost", "root", "", "demo");
  
 // Check connection
 if($link === false){
@@ -14,12 +14,18 @@ $project = mysqli_real_escape_string($link, $_REQUEST['projects']);
 $details = mysqli_real_escape_string($link, $_REQUEST['details']);
 $start_time = mysqli_real_escape_string($link, $_REQUEST['start_time']);
 $end_time = mysqli_real_escape_string($link, $_REQUEST['end_time']);
-$hours_total = mysqli_real_escape_string($link, $_REQUEST['hours_total']);
 $km = mysqli_real_escape_string($link, $_REQUEST['km']);
+
+
+$time1 = strtotime($start_time);
+$time2 = strtotime($end_time);
+$hours_total = abs($time2 - $time1) / 3600;
+
+
 
  
 // attempt insert query execution
-$sql = "INSERT INTO Times (Dates, Project, Details, StartTime, EndTime) VALUES ('$date_entry', '$project', '$details', '$start_time', '$end_time')";
+$sql = "INSERT INTO Times (Dates, Project, Details, StartTime, EndTime, HoursTotal) VALUES ('$date_entry', '$project', '$details', '$start_time', '$end_time', '$hours_total')";
 if(mysqli_query($link, $sql)){
     echo "Records added successfully.";
 } else{

@@ -145,13 +145,15 @@ echo "<option value=\"1\">" . $row['ProjectNumber'] . "</option>";
       <td><input type="text" name="details" id="details"></td>
       <td><input type="time" name="start_time" id="startTime"></td>
       <td><input type="time" name="end_time" id="endTime"></td>
-      <td><input type="float" name="hours_total" id="hours_total"></td>
+      <td></td>
       <td><input type="float" name="km" id="km"></td>
       <td><label><input type="checkbox" value="true"></label></td>
     <td><input type="submit" value="Submit"></td>
     </tr>
     </form>
     <?php
+
+    
 
 $result = mysqli_query($conn,"SELECT * FROM Times ORDER BY Dates DESC");
 
