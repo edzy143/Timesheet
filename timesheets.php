@@ -153,7 +153,7 @@ echo "<option value=\"1\">" . $row['ProjectNumber'] . "</option>";
     </form>
     <?php
 
-$result = mysqli_query($conn,"SELECT * FROM Times");
+$result = mysqli_query($conn,"SELECT * FROM Times ORDER BY Dates DESC");
 
 if (mysqli_num_rows($result) > 0) {
 ?>
