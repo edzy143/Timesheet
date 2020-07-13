@@ -36,9 +36,6 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
           position: fixed;
           left: 110px;
         }
-        .main-details{
-          padding-left: 7px;
-        }
     </style>
 </head>
 
@@ -54,7 +51,7 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Extras
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Department Summary</a></li>
+          <li><a href="#">Branch Summary</a></li>
           <li><a href="#">My Projects</a></li>
           <li><a href="#">Overtime</a></li>
         </ul>
@@ -83,33 +80,6 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
         echo(date("F d, Y h:i:s", $timestamp));
         ?>
   </div>
-
-  <div class="main-details">
-
-  <form>
-       <fieldset>
-          <p>
-             <label>Year/Month</label>
-             <select id = "myList">
-               <option value = "1">07/20</option>
-               <option value = "2">08/20</option>
-               <option value = "3">09/20</option>
-               <option value = "4">10/20</option>
-             </select>
-          </p>
-          <p>
-             <label>Week</label>
-             <select id = "myList">
-               <option value = "1">07/20</option>
-               <option value = "2">08/20</option>
-               <option value = "3">09/20</option>
-               <option value = "4">10/20</option>
-             </select>
-          </p>
-       </fieldset>
-    </form>
-  </div>
-
 
     <table class="table table-hover">
   <thead>
@@ -153,7 +123,8 @@ echo "<option value=\"$projno\">" . $row['ProjectNumber'] . "</option>";
 
     
 
-$result = mysqli_query($conn,"SELECT * FROM Times ORDER BY Dates DESC");
+$username = $_SESSION['username']; 
+$result = mysqli_query($conn,"SELECT * FROM Times WHERE UserName='$username' ORDER BY Dates DESC ");
 
 if (mysqli_num_rows($result) > 0) {
 ?>
