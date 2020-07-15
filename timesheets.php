@@ -42,18 +42,23 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Timesheets</a>
+    <button type="button" class="navbar-toggle collapsed  visible-xs-block visible-sm-block visible-md-block" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="welcome.php">Home</a></li>
-      <li><a href="timesheets.php">Timesheets</a></li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Extras
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Branch Summary</a></li>
-          <li><a href="#">My Projects</a></li>
-          <li><a href="#">Overtime</a></li>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul id="menu-menu-1" class="nav navbar-nav hidden-md hidden-sm">
+      <li><a title="Home" href="welcome.php">Home</a></li>
+      <li><a title="Timesheets" href="timesheets.php">Timesheets</a></li>
+      <li><a title="Extras" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Extras<span class="caret"></span></a>
+        <ul role="menu" class=" dropdown-menu">
+          <li><a title="My Projects" href="#">My Projects</a></li>
+          <li><a title="Vehicle Booking" href="#">Vehicle Booking</a></li>
+          <li><a title="Department Summary" href="#">Department Summary</a></li>
+
         </ul>
       </li>
     </ul>
@@ -61,6 +66,7 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
       <li><a href="reset-password.php"><span class="glyphicon glyphicon-user"></span> Reset your Password</a></li>
       <li><a href="logout.php"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
     </ul>
+  </div>
   </div>
 </nav>
 
