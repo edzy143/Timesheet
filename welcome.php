@@ -111,33 +111,29 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
 
     
 
-      $result = mysqli_query($conn, "SELECT * FROM Times WHERE MONTH(Dates) = MONTH(CURRENT_DATE())
-      AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' ORDER BY Dates DESC ");
-      $hoursTotal = mysqli_query($conn, "SELECT COUNT(HoursTotal)
-      FROM times
-      WHERE MONTH(Dates) = MONTH(CURRENT_DATE())
-            AND YEAR(Dates) = YEAR(CURRENT_DATE());");
-      
+      //$result = mysqli_query($conn, "SELECT * FROM Times WHERE MONTH(Dates) = MONTH(CURRENT_DATE())
+      //AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' ORDER BY Dates DESC ");
+      $result= mysqli_query($conn, "SELECT COUNT(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE());");
+      $result2= mysqli_query($conn, "SELECT MONTH FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE());");
 
+      $row = mysqli_fetch_array($result);
       if (mysqli_num_rows($result) > 0) {
       ?>
 
-        <?php
-
-        
-
-        $i = 0;
-        while ($row = mysqli_fetch_array($hoursTotal)) {
-        ?>
           <tr>
-            <th scope="row"><?php echo $hoursTotal ?></th>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><?php echo $row[0]?></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td></td>
             <td></td>
           </tr>
-        <?php
-          $i++;
-        }
-        ?>
+
 
     </tbody>
   </table>
