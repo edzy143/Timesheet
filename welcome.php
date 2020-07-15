@@ -113,8 +113,8 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
 
       //$result = mysqli_query($conn, "SELECT * FROM Times WHERE MONTH(Dates) = MONTH(CURRENT_DATE())
       //AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' ORDER BY Dates DESC ");
-      $result= mysqli_query($conn, "SELECT COUNT(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE());");
-      $result2= mysqli_query($conn, "SELECT MONTH FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE());");
+      $result= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username';");
+      $result2= mysqli_query($conn, "SELECT MONTH FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()); AND UserName='$username'");
 
       $row = mysqli_fetch_array($result);
       if (mysqli_num_rows($result) > 0) {
