@@ -39,7 +39,7 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
     </style>
 </head>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar fixed-top navbar-inverse bg-primary navbar-toggleable-sm"">
   <div class="container-fluid">
     <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed  visible-xs-block visible-sm-block visible-md-block" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
