@@ -141,6 +141,49 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
             <td></td>
           </tr>
 
+          <tr>
+            <th scope="row"><?php echo $row5[0]?></th>
+            <td><?php echo $row4[0]?></td>
+            <td></td>
+            <td></td>
+            <td><?php echo $row[0]?></td>
+            <td><?php echo $row2[0]?></td>
+            <td><?php echo $row3[0]?></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <th scope="row"><?php echo $row5[0]?></th>
+            <td><?php echo $row4[0]?></td>
+            <td></td>
+            <td></td>
+            <td><?php echo $row[0]?></td>
+            <td><?php echo $row2[0]?></td>
+            <td><?php echo $row3[0]?></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <th scope="row"><?php echo $row5[0]?></th>
+            <td><?php echo $row4[0]?></td>
+            <td></td>
+            <td></td>
+            <td><?php echo $row[0]?></td>
+            <td><?php echo $row2[0]?></td>
+            <td><?php echo $row3[0]?></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+
 
     </tbody>
   </table>
