@@ -95,6 +95,7 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
       <th scope="col">Details</th>
       <th scope="col">Start Time</th>
       <th scope="col">End Time</th>
+      <th scope="col">Lunch?</th>
       <th scope="col">Hours</th>
       <th scope="col">Km</th>
       <th scope="col">Charge</th>
@@ -119,9 +120,15 @@ echo "<option value=\"$projno\">" . $row['ProjectNumber'] . "</option>";
       <td><input type="text" name="details" id="details"></td>
       <td><input type="time" name="start_time" id="startTime"></td>
       <td><input type="time" name="end_time" id="endTime"></td>
+      <td>
+      <select name="lunch" id="lunch">
+  <option value="yes">Yes</option>
+  <option value="es">No</option>
+</select>
+      </td>
       <td></td>
       <td><input type="float" name="km" id="km"></td>
-      <td><label><input type="checkbox" value="true"></label></td>
+      <td><label><input type="checkbox" value="true" checked></label></td>
     <td><input type="submit" value="Submit"></td>
     </tr>
     </form>

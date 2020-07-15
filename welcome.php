@@ -110,78 +110,36 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
       $username = $_SESSION['username'];
 
     
+      $weekm2= mysqli_query($conn, "SELECT DISTINCT WEEK(Dates)+1 FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEK(Dates) = WEEK(CURDATE());");
+      $monthm2= mysqli_query($conn, "SELECT DISTINCT MONTH(Dates) FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND MONTH(Dates) = MONTH(CURDATE());");
+      $hourstotm2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username';");
+      $satm2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 5 AND WEEK(Dates) = WEEK(CURDATE());" );
+      $sunm2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 6 AND WEEK(Dates) = WEEK(CURDATE());" );
 
-      //$result = mysqli_query($conn, "SELECT * FROM Times WHERE MONTH(Dates) = MONTH(CURRENT_DATE())
-      //AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' ORDER BY Dates DESC ");
-      $week= mysqli_query($conn, "SELECT DISTINCT WEEK(Dates)+1 FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEK(Dates) = WEEK(CURDATE());");
-      $month= mysqli_query($conn, "SELECT DISTINCT MONTH(Dates) FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND MONTH(Dates) = MONTH(CURDATE());");
-      $result= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username';");
-      $result2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEKDAY(Dates)= 5 AND WEEK(Dates) = WEEK(CURDATE());" );
-      $sundays= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEKDAY(Dates)= 6 AND WEEK(Dates) = WEEK(CURDATE());" );
-
-      $row5 = mysqli_fetch_array($month);
-      $row4 = mysqli_fetch_array($week);
-      $row = mysqli_fetch_array($result);
-      $row2 = mysqli_fetch_array($result2);
-      $row3 = mysqli_fetch_array($sundays);
-      if (mysqli_num_rows($result) > 0) {
+      $row0 = mysqli_fetch_array($monthm2);
+      $row1 = mysqli_fetch_array($weekm2);
+      $row4 = mysqli_fetch_array($hourstotm2);
+      $row5 = mysqli_fetch_array($satm2);
+      $row6 = mysqli_fetch_array($sunm2);
+      if (mysqli_num_rows($weekm2) > 0) {
       ?>
 
           <tr>
-            <th scope="row"><?php echo $row5[0]?></th>
+            <th scope="row"><?php echo $row0[0]?></th>
+            <td><?php echo $row1[0]?></td>
+            <td></td>
+            <td></td>
             <td><?php echo $row4[0]?></td>
-            <td></td>
-            <td></td>
-            <td><?php echo $row[0]?></td>
-            <td><?php echo $row2[0]?></td>
-            <td><?php echo $row3[0]?></td>
+            <td><?php echo $row5[0]?></td>
+            <td><?php echo $row6[0]?></td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
           </tr>
 
-          <tr>
-            <th scope="row"><?php echo $row5[0]?></th>
-            <td><?php echo $row4[0]?></td>
-            <td></td>
-            <td></td>
-            <td><?php echo $row[0]?></td>
-            <td><?php echo $row2[0]?></td>
-            <td><?php echo $row3[0]?></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+         
 
-          <tr>
-            <th scope="row"><?php echo $row5[0]?></th>
-            <td><?php echo $row4[0]?></td>
-            <td></td>
-            <td></td>
-            <td><?php echo $row[0]?></td>
-            <td><?php echo $row2[0]?></td>
-            <td><?php echo $row3[0]?></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-
-          <tr>
-            <th scope="row"><?php echo $row5[0]?></th>
-            <td><?php echo $row4[0]?></td>
-            <td></td>
-            <td></td>
-            <td><?php echo $row[0]?></td>
-            <td><?php echo $row2[0]?></td>
-            <td><?php echo $row3[0]?></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
 
 
 
