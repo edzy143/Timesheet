@@ -110,11 +110,11 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
       $username = $_SESSION['username'];
 
     
-      $weekm2= mysqli_query($conn, "SELECT DISTINCT WEEK(Dates)+1 FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEK(Dates) = WEEK(CURDATE());");
-      $monthm2= mysqli_query($conn, "SELECT DISTINCT MONTH(Dates) FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND MONTH(Dates) = MONTH(CURDATE());");
-      $hourstotm2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username';");
-      $satm2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 5 AND WEEK(Dates) = WEEK(CURDATE());" );
-      $sunm2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 6 AND WEEK(Dates) = WEEK(CURDATE());" );
+      $weekm2= mysqli_query($conn, "SELECT DISTINCT WEEK(Dates)-1 FROM times WHERE  YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEK(Dates) = WEEK(CURDATE());");
+      $monthm2= mysqli_query($conn, "SELECT DISTINCT MONTH(Dates) FROM times WHERE  YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND MONTH(Dates) = MONTH(CURDATE());");
+      $hourstotm2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE  YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username';");
+      $satm2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE  YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 5 AND WEEK(Dates) = WEEK(CURDATE());" );
+      $sunm2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE  YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 6 AND WEEK(Dates) = WEEK(CURDATE());" );
 
       $row0 = mysqli_fetch_array($monthm2);
       $row1 = mysqli_fetch_array($weekm2);
@@ -122,11 +122,11 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
       $row5 = mysqli_fetch_array($satm2);
       $row6 = mysqli_fetch_array($sunm2);
 
-      $weekm1= mysqli_query($conn, "SELECT DISTINCT WEEK(Dates)+1 FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEK(Dates) = WEEK(CURDATE());");
-      $monthm1= mysqli_query($conn, "SELECT DISTINCT MONTH(Dates) FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND MONTH(Dates) = MONTH(CURDATE());");
-      $hourstotm1= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username';");
-      $satm1= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 5 AND WEEK(Dates) = WEEK(CURDATE());" );
-      $sunm1= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 6 AND WEEK(Dates) = WEEK(CURDATE());" );
+      $weekm1= mysqli_query($conn, "SELECT DISTINCT WEEK(Dates) FROM times WHERE  YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEK(Dates) = WEEK(CURDATE());");
+      $monthm1= mysqli_query($conn, "SELECT DISTINCT MONTH(Dates) FROM times WHERE  YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND MONTH(Dates) = MONTH(CURDATE());");
+      $hourstotm1= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE  YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username';");
+      $satm1= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE  YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 5 AND WEEK(Dates) = WEEK(CURDATE());" );
+      $sunm1= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE  YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 6 AND WEEK(Dates) = WEEK(CURDATE());" );
 
       $row01 = mysqli_fetch_array($monthm1);
       $row11 = mysqli_fetch_array($weekm1);
@@ -146,29 +146,7 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
       $row52 = mysqli_fetch_array($sat);
       $row62 = mysqli_fetch_array($sun);
 
-      $weekp1= mysqli_query($conn, "SELECT DISTINCT WEEK(Dates)+1 FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEK(Dates) = WEEK(CURDATE());");
-      $monthp1= mysqli_query($conn, "SELECT DISTINCT MONTH(Dates) FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND MONTH(Dates) = MONTH(CURDATE());");
-      $hourstotp1= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username';");
-      $satp1= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 5 AND WEEK(Dates) = WEEK(CURDATE());" );
-      $sunp1= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 6 AND WEEK(Dates) = WEEK(CURDATE());" );
-
-      $row03 = mysqli_fetch_array($monthp1);
-      $row13 = mysqli_fetch_array($weekp1);
-      $row43 = mysqli_fetch_array($hourstotp1);
-      $row53 = mysqli_fetch_array($satp1);
-      $row63 = mysqli_fetch_array($sunp1);
-
-      $weekp2= mysqli_query($conn, "SELECT DISTINCT WEEK(Dates)+1 FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEK(Dates) = WEEK(CURDATE());");
-      $monthp2= mysqli_query($conn, "SELECT DISTINCT MONTH(Dates) FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND MONTH(Dates) = MONTH(CURDATE());");
-      $hourstotp2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username';");
-      $satp2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 5 AND WEEK(Dates) = WEEK(CURDATE());" );
-      $sunp2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' AND WEEKDAY(Dates)= 6 AND WEEK(Dates) = WEEK(CURDATE());" );
-
-      $row04 = mysqli_fetch_array($monthp2);
-      $row14 = mysqli_fetch_array($weekp2);
-      $row44 = mysqli_fetch_array($hourstotp2);
-      $row54 = mysqli_fetch_array($satp2);
-      $row64 = mysqli_fetch_array($sunp2);
+     
       if (mysqli_num_rows($weekm2) > 0) {
       ?>
 
@@ -211,32 +189,7 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
             <td></td>
             <td></td>
           </tr>
-          <tr>
-            <th scope="row"><?php echo $row03[0]?></th>
-            <td><?php echo $row13[0]?></td>
-            <td></td>
-            <td></td>
-            <td><?php echo $row43[0]?></td>
-            <td><?php echo $row53[0]?></td>
-            <td><?php echo $row63[0]?></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <th scope="row"><?php echo $row04[0]?></th>
-            <td><?php echo $row14[0]?></td>
-            <td></td>
-            <td></td>
-            <td><?php echo $row44[0]?></td>
-            <td><?php echo $row54[0]?></td>
-            <td><?php echo $row64[0]?></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+
 
          
 
