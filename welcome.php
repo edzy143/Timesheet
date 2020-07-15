@@ -113,21 +113,28 @@ $conn = mysqli_connect("localhost", "root", "", "demo");
 
       //$result = mysqli_query($conn, "SELECT * FROM Times WHERE MONTH(Dates) = MONTH(CURRENT_DATE())
       //AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username' ORDER BY Dates DESC ");
+      $week= mysqli_query($conn, "SELECT DISTINCT WEEK(Dates)+1 FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEK(Dates) = WEEK(CURDATE());");
+      $month= mysqli_query($conn, "SELECT DISTINCT MONTH(Dates) FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND MONTH(Dates) = MONTH(CURDATE());");
       $result= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName='$username';");
-      $result2= mysqli_query($conn, "SELECT MONTH FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()); AND UserName='$username'");
+      $result2= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEKDAY(Dates)= 5 AND WEEK(Dates) = WEEK(CURDATE());" );
+      $sundays= mysqli_query($conn, "SELECT SUM(HoursTotal)FROM times WHERE MONTH(Dates) = MONTH(CURRENT_DATE()) AND YEAR(Dates) = YEAR(CURRENT_DATE()) AND UserName= 'eduard' AND WEEKDAY(Dates)= 6 AND WEEK(Dates) = WEEK(CURDATE());" );
 
+      $row5 = mysqli_fetch_array($month);
+      $row4 = mysqli_fetch_array($week);
       $row = mysqli_fetch_array($result);
+      $row2 = mysqli_fetch_array($result2);
+      $row3 = mysqli_fetch_array($sundays);
       if (mysqli_num_rows($result) > 0) {
       ?>
 
           <tr>
-            <th scope="row"></th>
-            <td></td>
+            <th scope="row"><?php echo $row5[0]?></th>
+            <td><?php echo $row4[0]?></td>
             <td></td>
             <td></td>
             <td><?php echo $row[0]?></td>
-            <td></td>
-            <td></td>
+            <td><?php echo $row2[0]?></td>
+            <td><?php echo $row3[0]?></td>
             <td></td>
             <td></td>
             <td></td>
